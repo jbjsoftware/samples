@@ -1,0 +1,16 @@
+<mat-toolbar class='bg-white' *ngIf='selectedQuestions.length <= 0'>
+    Questions Available for Assignment
+  </mat-toolbar>
+  
+  <mat-toolbar color='primary' *ngIf='selectedQuestions.length > 0'>
+    <button mat-raised-button color='accent' (click)='onAssignQuestions()'>
+      Assign {{selectedQuestions?.length}} {{selectedQuestions?.length | pluralCase:'Question'}} <mat-icon>chevron_right
+      </mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <div class='grid-container p-0'>
+    <ag-grid-angular class="ag-theme-alpine" [gridOptions]='gridOptions'>
+    </ag-grid-angular>
+  </div>
+  

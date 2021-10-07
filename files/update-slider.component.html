@@ -1,0 +1,60 @@
+<apex-side-slider-header>
+    <mat-toolbar color='primary'>
+      <span>Update Topic: </span>
+  
+      <div class='text-truncate small pl-2' [matTooltip]='details?.topicName'>{{details?.topicName}}</div>
+  
+      <div class='flex-fill'></div>
+  
+      <button mat-icon-button apexSideSliderClose>
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar>
+  </apex-side-slider-header>
+  
+  <apex-side-slider-content class='d-flex flex-column p-0'>
+  
+    <mat-tab-group [selectedIndex]='selectedIndex' (selectedTabChange)="onSelectionChange($event)" animationDuration='0ms' class='flex-fill'>
+  
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <div>Update Topic</div>
+        </ng-template>
+  
+        <app-centered-form-container class='h-100'>
+  
+          <app-update-topic-form [item]='details' (emitUpdateItem)='onUpdateItem($event)'
+            (emitPendingUpdate)='setStepHasPendingUpdate($event)'></app-update-topic-form>
+  
+        </app-centered-form-container>
+  
+      </mat-tab>
+  
+      <mat-tab [disabled]='topicAssignmentDisabled'>
+        <ng-template mat-tab-label>
+          <div>Assign Questions to Topic</div>
+        </ng-template>
+  
+        <app-assign-topic-questions-container [details]='details'></app-assign-topic-questions-container>
+  
+      </mat-tab>
+  
+    </mat-tab-group>
+  
+  </apex-side-slider-content>
+  
+  <apex-side-slider-actions>
+  
+    <button mat-stroked-button color='warn' (click)='onShowDeleteConfirmation()'>
+      <div class='d-flex align-items-center'>
+        <mat-icon>delete_forever</mat-icon>
+        <span class='pl-1'>Delete Topic</span>
+      </div>
+    </button>
+  
+    <div class='flex-fill'></div>
+  
+    <button mat-button apexSideSliderClose>Close</button>
+  
+  </apex-side-slider-actions>
+  

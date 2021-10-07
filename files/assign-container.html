@@ -1,0 +1,38 @@
+<div class="container-fluid d-flex flex-fill py-2" style="background-color: #f5f5f5;">
+
+    <div class="row flex-fill justify-content-center">
+  
+      <div class="col-24 col-lg-11 d-flex">
+        <div class='card flex-fill' style='min-height: 300px;'>
+  
+          <app-available-questions-for-assignment
+            [assignedQuestions]='assignedQuestions$ | async'
+            (emitAssignQuestions)='onAssignQuestions($event)'>
+          </app-available-questions-for-assignment>
+  
+        </div>
+      </div>
+  
+      <div class='d-none d-lg-flex'>
+        <div class='d-flex flex-fill flex-column justify-content-center align-items-center'>
+          <mat-icon class='md-36'>swap_horiz</mat-icon>
+        </div>
+      </div>
+  
+      <div class="col-24 col-lg-12 d-flex">
+        <div class='card flex-fill' style='min-height: 300px;'>
+  
+          <app-assigned-questions
+            [rowData]='assignedQuestions$ | async'
+            (emitUnassignQuestions)='onUnassignQuestions($event)'
+            (emitReorderQuestions)='onReorderQuestions($event)'
+            (emitAddQuestion)='onAddNewQuestion()'
+            (emitUpdateQuestion)='onUpdateQuestion($event)'>
+          </app-assigned-questions>
+  
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
