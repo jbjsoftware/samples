@@ -1,0 +1,33 @@
+<apex-side-slider-header>
+    <mat-toolbar color='primary'>
+      <span>Select Screener Tech Specialty</span>
+  
+      <div class='flex-fill'></div>
+  
+      <button mat-icon-button apexSideSliderClose>
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar>
+  </apex-side-slider-header>
+  
+  <apex-side-slider-content class='d-flex flex-column p-0'>
+  
+    <div class='grid-container' style='max-height:600px;'>
+      <ag-grid-angular class="ag-theme-alpine" [gridOptions]='gridOptions'>
+      </ag-grid-angular>
+    </div>
+  
+    <mat-toolbar class='bg-white'>
+  
+      <button mat-raised-button color='accent' [disabled]='!selectedTechSpecialty' (click)='onAddSelectedTechSpecialty()'>
+        Select Tech Specialty
+      </button>
+  
+      <div class='flex-fill'></div>
+  
+      <button mat-button apexSideSliderClose>Cancel</button>
+  
+    </mat-toolbar>
+  
+  </apex-side-slider-content>
+  
