@@ -1,0 +1,13 @@
+:host {
+  width: 100%;
+  display: flex;
+}
+
+select {
+  flex: 1;
+  min-height: 24px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #babfc7;
+}
