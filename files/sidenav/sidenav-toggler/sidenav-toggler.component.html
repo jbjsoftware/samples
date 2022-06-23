@@ -1,0 +1,5 @@
+<button mat-button (click)='toggleNav()'>
+  <mat-icon [ngClass]='{"mirror-icon": mirror == true}'>
+    {{(isCollapsed | async) ? icon : expandedIcon}}
+  </mat-icon>
+</button>

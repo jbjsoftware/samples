@@ -1,0 +1,40 @@
+<div class='sidenav-collapse-container'>
+
+  <li
+    class='sidenav-list-item sidenav-collapse-header'
+    [ngClass]='{"active": hasActiveChild(item?.path)}'
+    [matTooltip]='item.label'
+    [matTooltipDisabled]='!(sidenavService.hideNav$ | async)'
+    #collapseToolTip='matTooltip'
+    cdkAccordionItem
+    #panel="cdkAccordionItem"
+    expanded='false'>
+
+    <button
+      type='button'
+      class='sidenav-list-item-link sidenav-list-item-link-button'
+      [ngClass]='{"expanded": panel?.expanded}'
+      matRipple
+      (click)="panel?.toggle()">
+
+      <mat-icon class='sidenav-list-item-icon' *ngIf='item.icon'>{{item.icon}}</mat-icon>
+
+      <div class='sidenav-list-item-label'>
+        {{item.label}}
+      </div>
+
+      <mat-icon class='sidenav-list-item-dropdown-icon' [@indicatorRotate]='panel?.expanded? "expanded": "collapsed"'>
+        keyboard_arrow_down
+      </mat-icon>
+
+    </button>
+  </li>
+
+  <ul class='sidenav-collapsible-submenu' [ngClass]='"level-"+level' [@bodyExpansion]='panel?.expanded? "expanded": "collapsed"'>
+
+    <apex-sidenav-collapse-item #collapse [items]="item.items" [level]='level +1'>
+    </apex-sidenav-collapse-item>
+
+  </ul>
+
+</div>

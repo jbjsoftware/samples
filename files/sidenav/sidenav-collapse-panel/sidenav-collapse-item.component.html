@@ -1,0 +1,14 @@
+<ng-container *ngFor='let item of items'>
+
+    <apex-sidenav-collapse-panel 
+      *ngIf='item.items' 
+      [item]='item' 
+      [level]='level'>
+    </apex-sidenav-collapse-panel>
+  
+    <apex-sidenav-list-item 
+      *ngIf='!item.items' 
+      [item]='item'>
+    </apex-sidenav-list-item>
+  
+  </ng-container>

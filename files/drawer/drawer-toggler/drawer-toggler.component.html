@@ -1,0 +1,5 @@
+<button mat-icon-button (click)='toggleDrawer()' [color]='color'>
+  <mat-icon [ngClass]='{"mirror-icon": mirror == true}'>
+    {{isCollapsed ? icon: expandedIcon}}
+  </mat-icon>
+</button>

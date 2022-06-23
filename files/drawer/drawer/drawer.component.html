@@ -1,0 +1,5 @@
+<apex-drawer-scrim *ngIf='((handset$ | async) || (tablet$ | async)) && !(hideDrawer$ | async)'></apex-drawer-scrim>
+
+<aside class='drawer'>
+  <ng-content></ng-content>
+</aside>

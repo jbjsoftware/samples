@@ -1,0 +1,19 @@
+<li class='sidenav-list-item' [matTooltip]='item.label' #toolTip='matTooltip' [matTooltipDisabled]='!(hideNav$ | async)'>
+
+  <a
+    class='sidenav-list-item-link'
+    [routerLink]='item.path'
+    routerLinkActive='active'
+    matRipple>
+
+    <mat-icon class='sidenav-list-item-icon' *ngIf='item.icon'>{{item.icon}}</mat-icon>
+
+    <div class='sidenav-list-item-icon-alt' *ngIf='!item.icon && ((mode$ | async) === "condensed") && (hideNav$ | async)'>
+      {{item.label?.substring(0,2)}}
+    </div>
+
+    <div class='sidenav-list-item-label'>{{item.label}}</div>
+
+  </a>
+
+</li>

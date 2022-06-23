@@ -1,0 +1,16 @@
+@use '@angular/material' as mat;
+@import 'lib/sass/theme/build';
+
+:host-context(apex-global-header) {
+  margin-left: -16px;
+  margin-right: 16px;
+  height: 100%;
+  width: 72px;
+  background-color: mat.get-color-from-palette($mat-apex-accent, 700);
+
+  button {
+    height: 100%;
+    width: 100%;
+  }
+
+}

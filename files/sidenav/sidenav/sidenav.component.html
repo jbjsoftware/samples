@@ -1,0 +1,17 @@
+<apex-sidenav-scrim *ngIf='(handset || tablet && mode !=="condensed") && !hideNav'></apex-sidenav-scrim>
+
+<ng-content select='apex-sidenav-header'></ng-content>
+
+<aside class='sidenav'>
+
+  <div class='sidenav-close-button' *ngIf='handset || tablet'>
+    <button mat-icon-button (click)='closeSidenav()'>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <apex-sidenav-list [navItems]='navItems'></apex-sidenav-list>
+
+  <ng-content select='apex-avatar'></ng-content>
+
+</aside>

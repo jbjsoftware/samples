@@ -1,0 +1,26 @@
+<ul class='apex-sidenav-list'>
+
+  <ng-container *ngFor='let item of navItems'>
+
+    <apex-sidenav-list-item 
+      *ngIf='!item.items' 
+      [item]='item'>
+    </apex-sidenav-list-item>
+
+    <apex-sidenav-collapse-panel 
+      *ngIf='item.items && 
+            (((mode$| async) == "condensed" && (handset$ | async)) || 
+            ((mode$| async) === "condensed" && !(handset$ | async) && !(hideNav$ | async)) || 
+            ((mode$|async) !== "condensed"))' 
+      [item]='item'>
+    </apex-sidenav-collapse-panel>
+
+    <apex-sidenav-dropdown 
+      *ngIf='item.items && 
+            ((mode$| async) === "condensed" && !(handset$ | async) && (hideNav$ | async))' 
+      [item]='item'>
+    </apex-sidenav-dropdown>
+
+  </ng-container>
+
+</ul>

@@ -1,0 +1,285 @@
+@import 'lib/sass/theme/build';
+
+apex-sidenav-list {
+  flex: 1 0 0px;
+  display: flex;
+  flex-flow: column;
+}
+
+//condensed scrollbars
+.condensed.collapsed {
+  &:not(.handset) {
+    .apex-sidenav-list::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+      border-radius: 0;
+    }
+
+    .apex-sidenav-list::-webkit-scrollbar-thumb {
+      border-radius: 0;
+    }
+
+    .apex-sidenav-list {
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+  }
+}
+
+//condensed overrides
+.condensed.collapsed {
+  &:not(.handset) {
+
+    .sidenav-list-item-label,
+    .sidenav-list-item-dropdown-icon {
+      display: none;
+    }
+
+    .sidenav-list-item-link {
+      padding: $apex-sidenav-condensed-list-item-link-padding !important;
+    }
+
+    .sidenav-list-item {
+      margin: $apex-sidenav-condensed-list-item-margin;
+      padding: $apex-sidenav-condensed-list-item-padding;
+    }
+
+    .sidenav-collapsible-submenu {
+      .sidenav-list-item {
+        border: none;
+      }
+    }
+
+    .apex-sidenav-list {
+      >* {
+        border-top: 1px solid $apex-sidenav-condensed-list-item-border-color;
+      }
+
+      :first-child {
+        border-top: none;
+      }
+    }
+  }
+}
+
+.apex-sidenav-list {
+  overflow: auto;
+  flex: 1 0 0px;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0;
+  padding: 6px 0;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  list-style: none;
+  border-right: 1px solid #e0e0e0;
+
+  .sidenav-list-item {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: $apex-sidenav-list-item-height;
+    margin: $apex-sidenav-list-item-margin;
+    padding: 0 8px;
+  }
+
+  .sidenav-list-item-link {
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1 0 0px;
+    align-items: center;
+    color: $apex-sidenav-list-item-link-color;
+    text-decoration: none;
+    padding: $apex-sidenav-list-item-link-padding;
+    border-radius: $apex-sidenav-list-item-link-border-radius;
+    overflow: hidden;
+    font-weight: $apex-sidenav-list-item-link-font-weight;
+
+    &.active {
+      color: $apex-sidenav-list-item-link-active-color;
+      background-color: $apex-sidenav-list-item-link-active-background;
+
+      .sidenav-list-item-icon,
+      .sidenav-list-item-dropdown-icon {
+        color: $apex-sidenav-list-item-link-active-color;
+      }
+
+      .sidenav-list-item-icon-alt {
+        background-color: $apex-sidenav-list-item-link-active-color;
+        color: $apex-sidenav-list-item-link-active-background;
+      }
+    }
+
+    .sidenav-list-item-icon {
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      color: $apex-sidenav-list-item-icon-color;
+    }
+
+    .sidenav-list-item-icon-alt {
+      height: 20px;
+      width: 20px;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background-color: $apex-sidenav-list-item-icon-color;
+      color: $apex-sidenav-background-color;
+      text-transform: lowercase;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    .sidenav-list-item-label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+      text-align: left;
+      font: 400 14px/24px Roboto, "Helvetica Neue", sans-serif;
+      font-weight: $apex-sidenav-list-item-link-font-weight;
+      margin-left: 8px;
+    }
+  }
+
+  .sidenav-collapse-header {
+    .sidenav-list-item-link-button {
+      border: none;
+      padding-top: 0;
+      padding-bottom: 0;
+      line-height: inherit;
+      text-transform: none;
+      background: transparent;
+      font-weight: inherit;
+      cursor: pointer;
+    }
+
+    &.active {
+      .sidenav-list-item-link-button {
+        color: $apex-sidenav-list-item-link-active-color;
+        background: $apex-sidenav-list-item-link-active-background;
+        outline: none;
+
+        &.expanded {
+          background: transparent;
+          color: $apex-sidenav-list-item-link-active-background;
+
+          .sidenav-list-item-icon,
+          .sidenav-list-item-dropdown-icon {
+            color: $apex-sidenav-list-item-link-active-background;
+          }
+        }
+      }
+
+      .sidenav-list-item-icon,
+      .sidenav-list-item-dropdown-icon {
+        color: $apex-sidenav-list-item-link-active-color;
+      }
+
+    }
+
+    .sidenav-list-item-dropdown-icon {
+      flex-shrink: 0;
+      color: $apex-sidenav-list-item-icon-color;
+    }
+
+  }
+
+  .sidenav-collapse-container {
+    overflow: hidden;
+  }
+
+  .sidenav-collapsible-submenu {
+    list-style: none;
+    padding: 0;
+
+    &.level-1 {
+      .sidenav-list-item-link {
+        padding-left: $apex-sidenav-submenu-level-1-padding-left;
+      }
+    }
+
+    &.level-2 {
+      .sidenav-list-item-link {
+        padding-left: $apex-sidenav-submenu-level-2-padding-left;
+      }
+    }
+
+    &.level-3 {
+      .sidenav-list-item-link {
+        padding-left: $apex-sidenav-submenu-level-3-padding-left;
+      }
+    }
+
+    &.level-4 {
+      .sidenav-list-item-link {
+        padding-left: $apex-sidenav-submenu-level-4-padding-left;
+      }
+    }
+
+    &.level-5 {
+      .sidenav-list-item-link {
+        padding-left: $apex-sidenav-submenu-level-5-padding-left;
+      }
+    }
+  }
+
+  .sidenav-dropdown-container {
+    .sidenav-list-item-link-button {
+      border: none;
+      padding-top: 0;
+      padding-bottom: 0;
+      line-height: inherit;
+      text-transform: none;
+      background: transparent;
+      font-weight: inherit;
+      cursor: pointer;
+
+      &.active {
+        color: $apex-sidenav-list-item-link-active-color;
+        background: $apex-sidenav-list-item-link-active-background;
+        outline: none;
+
+        .sidenav-list-item-icon,
+        .sidenav-list-item-dropdown-icon {
+          color: $apex-sidenav-list-item-link-active-color;
+        }
+      }
+
+      .sidenav-list-item-icon-arrow {
+        margin-left: -4px;
+      }
+    }
+  }
+}
+
+.sidenav-dropdown-menu {
+  width: 256px;
+
+  .sidenav-dropdown-menu-item {
+    &.active {
+      color: $apex-sidenav-list-item-link-active-background;
+
+      .material-icons {
+        color: $apex-sidenav-list-item-link-active-background;
+      }
+
+      &::after {
+        color: $apex-sidenav-list-item-link-active-background;
+      }
+
+    }
+
+    .material-icons {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

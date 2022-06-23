@@ -1,0 +1,22 @@
+<div class='sidenav-dropdown-container' routerLinkActive='active'>
+
+  <li class='sidenav-list-item' [matTooltip]='item.label' #dropdownToolTip='matTooltip'>
+
+    <button class='sidenav-list-item-link sidenav-list-item-link-button' type='button' matRipple [matMenuTriggerFor]='menu.childMenu'
+      [ngClass]='{"active": hasActiveChild(item?.path)}'>
+
+      <mat-icon class='sidenav-list-item-icon' *ngIf='item.icon'>{{item.icon}}</mat-icon>
+
+      <div class='sidenav-list-item-icon-alt' *ngIf='!item.icon && ((mode$ | async) === "condensed")'>{{item.label?.substring(0,2)}}</div>
+
+      <div class='sidenav-list-item-label'>{{item.label}}</div>
+
+      <mat-icon class='sidenav-list-item-icon sidenav-list-item-icon-arrow'>arrow_right</mat-icon>
+
+    </button>
+
+  </li>
+
+  <apex-sidenav-dropdown-item #menu [items]="item.items"></apex-sidenav-dropdown-item>
+
+</div>

@@ -1,0 +1,65 @@
+@use '@angular/material' as mat;
+@import 'lib/sass/theme/build';
+
+:host {
+  flex: 0 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  overflow-x: hidden;
+  top: 0;
+  bottom: 0;
+}
+
+:host-context(.position-end) {
+  right: 0;
+  border-left: 1px solid mat.get-color-from-palette(mat.$gray-palette, 300);
+}
+
+:host-context(.position-start) {
+  left: 0;
+  border-right: 1px solid mat.get-color-from-palette(mat.$gray-palette, 300);
+}
+
+:host-context(.small-screen) {
+  z-index: (nth($apex-drawer-zindex, 1) + 1);
+  position: fixed;
+
+  .drawer {
+    z-index: (nth($apex-drawer-zindex, 1) + 1);
+  }
+}
+
+:host-context(.collapsed) {
+  overflow: hidden;
+
+  .drawer {
+    overflow: hidden !important;
+  }
+}
+
+.drawer {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  z-index: $apex-drawer-zindex;
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+
+  ::ng-deep {
+    .drawer-section {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .mat-toolbar {
+      background: white;
+      font-size: 24px;
+    }
+
+    .mat-divider {
+      margin: 8px 0;
+    }
+  }
+}

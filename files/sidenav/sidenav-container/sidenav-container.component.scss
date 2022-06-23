@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  flex: 1 0 0px;
+}
+
+.sidenav-container {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 1 0 0px;
+  overflow: auto;
+}
